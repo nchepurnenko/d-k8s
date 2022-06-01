@@ -1,0 +1,8 @@
+apiVersion: v2
+name: hard
+description: Simple application for netology final task
+
+type: application
+
+version: 0.1.2
+appVersion: "1.0.0"

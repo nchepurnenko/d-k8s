@@ -1,0 +1,17 @@
+replicaCount: 3
+
+namespace: simple-app-ns
+
+image:
+  repository: chebyrek/d-app
+  tag: "1.0.0"
+
+resources:
+   limits:
+     cpu: 200m
+     memory: 256Mi
+   requests:
+     cpu: 100m
+     memory: 128Mi
+
+appPort: 80
