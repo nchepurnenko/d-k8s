@@ -100,7 +100,7 @@ serviceAccountSecrets:
 
 image:
   repository: ghcr.io/runatlantis/atlantis
-  tag: v0.19.3
+  tag: v0.19.5
   pullPolicy: IfNotPresent
 
 ## Optionally specify an array of imagePullSecrets.
@@ -113,14 +113,12 @@ image:
 ## Use Server Side Repo Config,
 ## ref: https://www.runatlantis.io/docs/server-side-repo-config.html
 ## Example default configuration
-# repoConfig: |
-#  ---
-#  repos:
-#  - id: /.*/
-#    apply_requirements: []
-#    workflow: default
-#    allowed_overrides: []
-#    allow_custom_workflows: false
+repoConfig: |
+ ---
+ repos:
+ - id: /.*/
+   allowed_overrides: [apply_requirements, workflow, delete_source_branch_on_merge]
+   allow_custom_workflows: true
 #  workflows:
 #    default:
 #      plan:
@@ -199,7 +197,7 @@ statefulSet:
 # terminationGracePeriodSeconds: 60
 
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName:
   annotations: {}
     # kubernetes.io/ingress.class: nginx
